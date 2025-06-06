@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background-color: hsl(0, 0%, 12%);
+    color: white;
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 40px;
+
+}
+
+ul,li,h1{
+    display: inline;;
+}
+
+ul{
+    margin-left: 70%;
+}
+ul:hover{
+    cursor: pointer;
+}
+li:hover{
+    color:white;
+}
+li{
+    font-size: larger;
+    color: gray;
+}
+body{
+    background-color: black;
+}
+
+input{
+    width: 60%;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+.searchbar{
+    margin-left: 25%;
+}
+.images img{
+    height: 200px;
+    width: 200px;
+    transition: filter 0.3s ease;
+}
+.images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    gap: 50px;
+}
+
+.image-card{
+    /*display: inline-block;*/
+    background-color: hsl(0, 0%, 12%);
+    color: whitesmoke;
+    padding: 10px 10px 20px 10px;
+    padding-bottom: 20px;
+    /*margin: 50px;*/
+    box-sizing: border-box;
+    flex-basis: 20%;
+
+}
+button:hover{
+    cursor: pointer;
+}
+
+.view{
+    padding: 5px 15px;
+    margin-top: 30px;
+    background-color: hsl(0, 0%, 52%);
+    border-color:  hsl(0, 0%, 52%);
+    border-radius: 10px;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.card-content{
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .image-card {
+        flex: 0 1 calc(50% - 50px); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-card {
+        flex: 0 1 calc(100% - 50px); /* 1 per row on mobile */
+    }
+}
+.images img:hover{
+    filter: brightness(0.8);
+}

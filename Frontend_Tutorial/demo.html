@@ -1,0 +1,37 @@
+<h1 id="title">Hola Pedro</h1>
+
+<button>Change</button>
+
+<script>
+        var hname = document.getElementById("title")
+        console.log(hname)
+        console.log(hname.textContent)
+        hname.textContent = "Bye"
+        console.log(hname.textContent)
+        console.log(hname)
+    </script>
+
+
+<h1 id="1">Hola Amigo Pedro</h1>
+
+<script>
+    var h1name = document.getElementById("1")
+    function Change(){
+        h1name.textContent = "Sayonara Niggasaki"
+    }
+</script>
+
+<button onclick="Change()">Change</button> <br> <br> <br>
+
+
+<input id="num1" type="number">  <input id="num2" type="number">
+<button onclick="add()">Add</button>
+<p id="total">Result</p>
+<script>
+    function add(){
+        var num1 = document.getElementById("num1").value
+        var num2 = document.getElementById("num2").value
+        var total = Number(num1) + Number(num2)
+        document.getElementById("total").innerText = "Result: "+total
+    }
+</script>
