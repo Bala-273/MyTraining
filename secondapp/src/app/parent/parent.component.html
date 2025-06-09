@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Parent Component</h2>
+    <h3>Available Products</h3>
+    <div class="box">
+      <ul>
+        <li *ngFor="let product of products" (click)="moveToChild(product)">
+          {{ product }}
+        </li>
+      </ul>
+    </div>
+  
+    <app-child 
+      [selectedProducts]="selectedProducts" 
+      (returnToParent)="moveToParent($event)">
+    </app-child>
+  </div>
+  
