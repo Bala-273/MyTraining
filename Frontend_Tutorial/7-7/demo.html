@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="" alt="">
+    <p id="demo"></p>
+    <script>
+        let x;
+        console.log(x);
+        let y = '';
+        console.log("y:"+y);
+
+        const product = {
+            name: 'bat',
+            price: 100,
+            rating:{
+                stars: 4.5,
+                count: 87
+            }
+        };
+        console.log(product.name);
+        console.log(product.price);
+        
+        product.name = 'washing machine';
+        console.log(product);
+        
+        product.quantity = 80;
+        console.log(product);
+        
+        //delete product.price;
+        //console.log(product)
+
+        const jsonString = JSON.stringify(product);
+        console.log(jsonString); // all values in double quotes in json
+
+        const jsObj = JSON.parse(jsonString);
+        console.log(jsObj);
+
+        let fullName = "Bro Code";
+        console.log(fullName.slice(0,8,3));
+
+    </script>
+</body>
+</html>
