@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="fruits">Apple</div>
+    <div class="fruits">Orange</div>
+    <div class="fruits">Banana</div>
+
+    <h4>Marvel</h4>
+    <ul>
+        <li>Avengers</li>
+        <li>Thor Ragnarok</li>
+        <li>Captain America Civil War</li>
+    </ul>
+
+    <h4>DC</h4>
+    <ul>
+        <li>Batman</li>
+        <li>Superman</li>
+        <li>Joker</li>
+    </ul>
+
+    <h1>Header</h1>
+    <h1>Header2</h1>
+
+    <button id="btn">Click me</button>
+    <button id="numBtn">1</button>
+    <button id="clrBtn">Color</button>
+    <script>
+
+        const qsall = document.querySelectorAll("h1")
+        qsall.forEach((elem)=>elem.style.color = "blue")
+
+        /*const items = document.getElementsByTagName("h4")
+        for(let i=0; i<items.length; i++){
+            console.log(items[i].innerText);
+        }*/
+
+        const movieSection = document.getElementsByTagName("h4")
+        movieSection[1].style.backgroundColor = "red"
+        /*for(let section of movieSection){
+            section.style.backgroundColor = "bluegrey";
+        }*/
+        const movies = document.getElementsByTagName("li")
+        for(let movie of movies){
+            movie.style.backgroundColor = "yellow"
+        }
+        
+
+        const fruits = document.getElementsByClassName("fruits")
+        console.log(fruits[0].innerText)
+        //need to convert html collection to array to use array methods
+        //Array.from(fruits).forEach(()=>);
+        for(let i=0; i<fruits.length; i++){
+            if(i%2==0){
+                fruits[i].style.backgroundColor = "blue"
+            }
+            else{
+                fruits[i].style.backgroundColor = "red";
+            }
+        };
+
+        //fruits[1].style.backgroundColor = "red";
+
+        //arrow function with map
+        const numbers = [1,2,3,4,5,6,77];
+        /*function square(n){
+            return Math.pow(n,2);
+        }
+        console.log(numbers.map(square))*/
+        console.log([1,2,3,4,5,6,7].map((n) => Math.pow(n,3)));
+        console.log(numbers.filter((val) => val%2==0))
+        console.log(numbers.reduce((cVal, nVal)=> cVal+nVal))
+
+        //map, reduce, filter are for arrays not for obj throws error
+        const ages = {
+            'age1': 25,
+            'age2': 77,
+            'age3': 21
+        }
+        console.log(Object.values(ages).reduce((total,age)=>total+age));
+
+        const array = ["hi", "hello", "hola", "pedro"];
+        const [first, second, ...all]  = array;
+        console.log(first)
+        console.log(second)
+        console.log(all)
+
+        const person = {
+            "name": "patrick",
+            "age": 21,
+            "job": "Engineer"
+        }
+
+        //destructuring
+        const{ name, age,job } = person;
+        console.log(name);
+        displayInfo = ({ name, age, job }) => {console.log(`name: ${name}`, `age: ${age}`, `job: ${job}`)}
+        displayInfo(person);
+
+        //callback
+        function createCounter(){
+            let count = 0;
+            return function(){
+                count++;
+                console.log(count);
+            };
+        }
+        const counter = createCounter()
+        counter()
+        counter()
+
+        function createGame(){
+            let score = 0;
+            function increaseScore(points){
+                score+=points;
+                console.log(`+${points}`)
+            }
+            function decreaseScore(points){
+                score-=points;
+                console.log(`-${points}`)
+            }
+            function getScore(){
+                //return score;
+                console.log(score)
+            }
+
+            return {increaseScore,decreaseScore, getScore}
+        }
+
+        //closures
+        const game = createGame();
+        game.increaseScore(70);
+        game.decreaseScore(23);
+        game.getScore();
+
+        setTimeout(()=>alert("hello"),5000);
+        
+        function func1(){
+            setTimeout(() => console.log("Hello"), 3000);
+        }
+        function func2(callback){
+            console.log("1");
+            console.log("2");
+            console.log("3");
+            callback()
+        }
+        func2(func1)
+
+        console.log({}=={})
+
+        function getUserData(){
+            return new Promise((resolve, reject)=>
+        setTimeout(()=>{
+            const success = false;
+            if(success){
+                resolve({name:"Doom", age:3000});
+            }
+            else{
+                reject("Failed to get data")
+            }
+        },2000))
+        }
+
+        getUserData()
+            .then(user=> console.log("User data", user))
+            .catch(error=>console.error("Error", error))
+
+        fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+        .then(respons=>console.log(respons))
+        .catch(error=> console.error(error))
+
+        //eventListners
+        const btn = document.getElementById("btn");
+        btn.addEventListener('click', (event)=>{btn.textContent="bitch", console.log('clicked')})
+        /*btn.addEventListener('mouseover', (event)=>{btn.textContent="bruuuhhhh", console.log('over')})*/
+        btn.addEventListener('keydown', (event)=>{console.log(event.key)})
+
+        const numBtn = document.getElementById("numBtn");
+        numBtn.addEventListener('keydown', (event)=>{
+            switch(event.key){
+            case 'ArrowUp': numBtn.textContent = Number(numBtn.textContent)+1;
+            break;
+            case'ArrowDown': numBtn.textContent = Number(numBtn.textContent)-1;
+            break;
+        }}
+        )
+
+        const clrBtn = document.getElementById('clrBtn');
+        clrBtn.addEventListener('keydown', (event)=>{
+            switch(event.key){
+                case 'r': clrBtn.style.backgroundColor = 'red'
+                break;
+                case 'b': clrBtn.style.backgroundColor = 'blue'
+                break;
+                case 'y': clrBtn.style.backgroundColor = 'yellow'
+                break;
+            }
+        })
+        
+    </script>
+    
+</body>
+</html>
