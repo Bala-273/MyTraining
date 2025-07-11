@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="myCheckbox">
+    <label for="myCheckbox">Got Placed</label> <br>
+
+    <input type="radio" name="valid" id="visa-btn">
+    <label for="visa-btn">Visa</label>
+    <input type="radio" name="valid" id="paypal-btn">
+    <label for="paypal-btn">Paypal</label>
+    <input type="radio" name="valid" id="mastercard-btn">
+    <label for="mastercard-btn">MasterCard</label>
+    <input type="radio" name="valid" id="rupay-btn">
+    <label for="rupay-btn">Rupay</label> <br>
+
+    <button id="submit-btn">Submit</button>
+
+    <p id="result"></p>
+    <p id="payment-type"></p>
+
+    <script>
+        let userName = prompt("Enter your name: ");
+        userName = userName.trim().charAt(0).toUpperCase() + userName.trim().slice(1).toLowerCase();
+        console.log(userName);
+
+        const myCheckbox = document.getElementById("myCheckbox")
+        const result = document.getElementById("result");
+        const submit = document.getElementById("submit-btn");
+        const paymentType = document.getElementById("payment-type");
+        const visa = document.getElementById('visa-btn');
+        submit.onclick = function myFun(){
+            if(myCheckbox.checked){
+                result.textContent = "You are subbed";
+            }
+            else{
+                result.textContent = "You are not subbed";
+            }
+
+            if(visa.checked){
+                paymentType.innerText = "Clicked visa";
+            }
+            else{
+                null
+            }
+        }
+
+        let samArr = ["hi", "hello", 1];
+        for(let s of samArr){
+            console.log(s+1)
+        }
+    </script>
+
+    
+</body>
+</html>
